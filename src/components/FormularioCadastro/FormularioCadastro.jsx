@@ -9,54 +9,46 @@ function FormularioCadastro() {
         event.preventDefault();
         console.log(nome);
         }}>
+
         <TextField 
             value = {nome}
             onChange={(event) => {
                 setNome(event.target.value);
-            if(nome.length >= 3){
-                    setNome(nome.substring(0, 3));
+            if(nome.length >= 5){
+                    setNome(nome.substring(0, 5));
                 }
-                }}
+            }}
             
-            id='nome' 
-            label='Nome' 
-            variant="outlined" 
-            fullWidth 
-            margin="normal" 
-            color='Secondary'/>
+            id='nome'          label='Nome' 
+            variant="outlined" fullWidth 
+            margin="normal"    color='Secondary'/>
         <TextField 
-            id='Sobrenome' 
-            label='Sobrenome' 
-            variant="outlined" 
-            fullWidth margin="normal" 
-            color='Secondary' />
-            <TextField 
-            id='CPF' 
-            label='CPF' 
-            variant="outlined" 
-            fullWidth 
-            margin="normal"
-            color='Secondary'/>
+            id='Sobrenome'     label='Sobrenome' 
+            variant="outlined" fullWidth 
+            margin="normal"    color='Secondary' />
+
+        <TextField 
+            id='CPF'            label='CPF' 
+            variant="outlined"  fullWidth 
+            margin="normal"     color='Secondary'/>
         
         <FormControlLabel 
             label='Novidades'
             control={
                 <Switch 
-                name="novidades" 
-                label="novidades" 
-                defaultChecked 
-                color='Secondary'/>}/>
+                name="novidades" label="novidades" 
+                defaultChecked   color='Secondary'/>}/>
+
         <FormControlLabel
             label='Promoções'
             control={
                 <Switch 
-                name='Promoções' 
-                label='Promoções' 
-                defaultChecked 
-                color='Secondary'/>}/>
+                name='Promoções' label='Promoções' 
+                defaultChecked   color='Secondary'/>}/>
         
         
-        <Button type='submite' variant="contained" color='Secondary'>Cadastrar</Button>      
+        <Button type='submite' variant="contained" 
+                color='Secondary'>Cadastrar</Button>      
     </form>
   );
 }
