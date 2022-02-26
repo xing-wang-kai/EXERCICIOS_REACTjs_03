@@ -5,6 +5,7 @@ import FormularioCadastro from "./components/FormularioCadastro/FormularioCadast
 import 'fontsource-roboto';
 
 class App extends Component {
+  
   render() {
     return (
       <Container maxWidth='sm' component='article'>
@@ -14,7 +15,6 @@ class App extends Component {
     );
   }
 }
-
 function aoEnviar(dados){
   console.log(dados)
 }
