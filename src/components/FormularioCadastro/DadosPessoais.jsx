@@ -106,8 +106,8 @@ function DadosPessoais({aoEnviar, validarCPF, coletardados}){
                onClick={(e)=> {
                     e.stopPropagation();
                     e.preventDefault();
-                    if((nome ==='') || (sobrenome === '') || (cpf.length <= 11)){
-                        console.log('ERROR AO SUBMETER CAMPOS OBRIGATÓRIOS')
+                    if((nome ==='') || (sobrenome === '') || (error.cpf.validar === false)){
+                        window.alert('ERROR AO SUBMETER CAMPOS OBRIGATÓRIOS')
                     }else{
                         //console.log(nome, sobrenome, cpf, promo, novid);
                         coletardados({nome, sobrenome, cpf, promo, novid})
@@ -115,7 +115,7 @@ function DadosPessoais({aoEnviar, validarCPF, coletardados}){
                     
                 }}
                 
-                >Cadastrar</Button>
+                >PROXIMO</Button>
 
         </form>
 

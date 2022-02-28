@@ -1,9 +1,14 @@
-import { Button, formatMs, TextField } from '@material-ui/core'
+import { Button, TextField } from '@material-ui/core'
 import React, {useState} from 'react'
 
-function DadosLogin({aoEnviar, coletardados}){
+function DadosLogin({aoEnviar, coletardados, validarSenha}){
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    let [error, setError] = useState(
+            {senha: 
+            {validar:true, helperText:""}
+        })
+    
     return(
         <form>
             <TextField 
@@ -18,7 +23,18 @@ function DadosLogin({aoEnviar, coletardados}){
                 margin='normal' placeholder='exemple@exmple.com'
                 />
             <TextField
+                value={password}
+                error={!error.senha.validar}
+                helperText={error.senha.helperText}
 
+                onBlur={(event)=>{
+                    if(password.length < 4 || password.length >=50){
+                        setError({senha: {validar: false, helperText: "A senhar precisa ter entre 4 a 50 caracteres"} })
+                    }
+                    else{
+                        setError({senha: {validar: true, helperText: ""} })
+                    }
+                }}
                 onChange={(event) => {
                     setPassword(event.target.value)
                 }}
@@ -36,9 +52,16 @@ function DadosLogin({aoEnviar, coletardados}){
                 onClick={(e)=> {
                     e.stopPropagation();
                     e.preventDefault();
-                    coletardados({email, password})
+
+                    if((email === '') || ((password < 4 || password > 50))){
+                        window.alert('ERROR AO SUBMETER CAMPOS OBRIGATÓRIOS')
+                    }else{
+                        //console.log(nome, sobrenome, cpf, promo, novid);
+                        coletardados({email, password})
+                    }
+                    
                 }}   
-                variant='outlined' color='secondary'>Finalizar Login</Button>
+                variant='outlined' color='secondary'>PROXIMO</Button>
 
                      
         </form>

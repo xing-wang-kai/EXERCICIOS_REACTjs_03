@@ -79,9 +79,13 @@ function DadosEntrega({aoEnviar, coletardados}){
                 onClick={(e)=> {
                     e.stopPropagation();
                     e.preventDefault();
-                    coletardados({cep, endereco, numero, cidade, estado})
+                    if((cep === '') || (endereco === '') || (numero === '') || (cidade === "") || (estado) === ''){
+                        window.alert('ERROR AO SUBMETER CAMPOS OBRIGATÓRIOS')
+                    }else{
+                        coletardados({cep, endereco, numero, cidade, estado})
+                    }
                 }} 
-                >Finalizar o Cadastro</Button>
+                >FINALIZAR</Button>
 
 
         </form>
